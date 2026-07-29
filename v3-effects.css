@@ -1,0 +1,108 @@
+:root{
+  --motion-fast:.22s;
+  --motion-med:.48s;
+  --subject-glow:#7c6cff;
+}
+body[data-subject="informatica"]{--subject-glow:#54d6ff}
+body[data-subject="ciencias"]{--subject-glow:#48e0a4}
+body[data-subject="estudios"]{--subject-glow:#ffd166}
+
+/* Animated atmosphere shared by every subject */
+#fxAtmosphere{position:fixed;inset:78px 0 0;pointer-events:none;overflow:hidden;z-index:0;opacity:.52}
+#fxAtmosphere span{position:absolute;bottom:-60px;font-size:clamp(18px,2.2vw,34px);filter:drop-shadow(0 0 12px color-mix(in srgb,var(--subject-glow) 65%,transparent));animation:fx-rise var(--dur,14s) linear infinite;animation-delay:var(--delay,0s);opacity:0}
+@keyframes fx-rise{0%{transform:translate3d(0,40px,0) rotate(0);opacity:0}10%{opacity:.65}55%{transform:translate3d(var(--drift,25px),-52vh,0) rotate(160deg);opacity:.45}100%{transform:translate3d(calc(var(--drift,25px)*-1),-110vh,0) rotate(340deg);opacity:0}}
+
+.app{position:relative;z-index:1;transition:filter .25s ease}
+.app.scene-enter{animation:scene-enter .48s cubic-bezier(.2,.8,.2,1)}
+@keyframes scene-enter{0%{opacity:0;transform:translateY(18px) scale(.985);filter:blur(5px)}100%{opacity:1;transform:none;filter:none}}
+
+/* More alive cards */
+.subject-card,.road-card,.mission-intro,.teaching-stage,.game-stage,.quiz-shell{transform-style:preserve-3d;will-change:transform}
+.subject-card,.road-card{transition:transform .22s ease,border-color .22s ease,filter .22s ease}
+.subject-card:hover,.road-card:hover{filter:brightness(1.09);box-shadow:0 18px 55px color-mix(in srgb,var(--subject-glow) 20%,transparent)}
+.subject-emoji,.road-emoji,.mission-world>span,.checkpoint-icon,.question-visual{animation:hero-bob 2.7s ease-in-out infinite}
+@keyframes hero-bob{50%{transform:translateY(-8px) rotate(2deg)}}
+.urgent-badge{animation:urgent-pulse 1.35s ease-in-out infinite}
+@keyframes urgent-pulse{50%{transform:scale(1.08);box-shadow:0 0 24px rgba(255,126,182,.45)}}
+
+/* Sidekick */
+#iqSidekick{position:fixed;right:22px;bottom:22px;z-index:45;display:flex;align-items:flex-end;gap:9px;pointer-events:none;transition:transform .25s ease,opacity .25s ease}
+#iqSidekick.hidden{opacity:0;transform:translateY(25px)}
+.sidekick-bot{width:66px;height:66px;border-radius:23px;display:grid;place-items:center;font-size:38px;background:linear-gradient(145deg,#f7fbff,#9eb3e9);border:3px solid rgba(255,255,255,.7);box-shadow:0 15px 38px rgba(0,0,0,.38),0 0 30px color-mix(in srgb,var(--subject-glow) 45%,transparent);animation:bot-float 2.3s ease-in-out infinite;position:relative}
+.sidekick-bot:after{content:"";position:absolute;width:13px;height:6px;border-radius:50%;background:#1a2752;bottom:14px;animation:bot-mouth 1.8s ease-in-out infinite}
+body.is-speaking .sidekick-bot:after{animation:talk .15s alternate infinite}
+@keyframes bot-float{50%{transform:translateY(-8px) rotate(-2deg)}}
+@keyframes bot-mouth{50%{transform:scaleX(.55)}}
+@keyframes talk{to{height:13px;border-radius:50%}}
+.sidekick-bubble{max-width:270px;padding:12px 15px;border-radius:18px 18px 5px 18px;background:rgba(247,250,255,.96);color:#17203c;font-weight:800;line-height:1.35;box-shadow:0 14px 34px rgba(0,0,0,.28);opacity:0;transform:translateY(8px) scale(.95);transition:.22s ease}
+#iqSidekick.talking .sidekick-bubble{opacity:1;transform:none}
+
+/* Voice controls injected in header */
+.voice-control{border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:14px;padding:10px 11px;cursor:pointer;font-weight:900;min-width:62px;transition:.18s}
+.voice-control:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+
+/* Caption strip for narrated mini-video */
+#voiceCaption{position:fixed;left:50%;bottom:25px;z-index:44;transform:translate(-50%,20px);width:min(760px,calc(100% - 190px));padding:13px 18px;border-radius:18px;background:rgba(7,12,29,.92);border:1px solid color-mix(in srgb,var(--subject-glow) 45%,rgba(255,255,255,.12));box-shadow:0 18px 60px rgba(0,0,0,.42);opacity:0;pointer-events:none;transition:.25s;color:#dce7ff;text-align:center;line-height:1.5}
+#voiceCaption.show{opacity:1;transform:translate(-50%,0)}
+#voiceCaption .spoken{color:#fff;background:color-mix(in srgb,var(--subject-glow) 28%,transparent);border-radius:5px;padding:1px 3px}
+
+/* Buttons feel tactile */
+button{position:relative;overflow:hidden}
+.iq-ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.38);transform:scale(0);animation:ripple .55s ease-out;pointer-events:none}
+@keyframes ripple{to{transform:scale(4);opacity:0}}
+.primary{animation:primary-breathe 2.8s ease-in-out infinite}
+@keyframes primary-breathe{50%{box-shadow:0 14px 36px color-mix(in srgb,var(--subject-glow) 28%,rgba(109,93,252,.2))}}
+
+/* Mini-video visual energy */
+.teaching-stage:before,.game-stage:before,.quiz-shell:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(110deg,transparent 20%,color-mix(in srgb,var(--subject-glow) 8%,transparent) 45%,transparent 70%);background-size:220% 100%;animation:stage-shimmer 5s linear infinite}
+.teaching-stage,.game-stage,.quiz-shell{position:relative;overflow:hidden}
+@keyframes stage-shimmer{to{background-position:-220% 0}}
+.animated-visual span{animation-duration:calc(1.8s + var(--i)*.18s)!important;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3));transition:.25s}
+.animated-visual:hover span{transform:translateY(-10px) scale(1.14) rotate(4deg)}
+.scan-line{animation-duration:2.4s!important}
+.memory-code{animation:memory-glow 2.1s ease-in-out infinite}
+@keyframes memory-glow{50%{transform:scale(1.02);box-shadow:0 0 28px color-mix(in srgb,var(--subject-glow) 23%,transparent)}}
+.lesson-dots i.active{animation:dot-pop .45s cubic-bezier(.2,1.8,.4,1)}
+@keyframes dot-pop{0%{transform:scale(.2)}100%{transform:scale(1)}}
+
+/* Questions, feedback, combos */
+.question-card{animation:question-pop .42s cubic-bezier(.2,.9,.25,1.15)}
+@keyframes question-pop{0%{opacity:0;transform:translateY(18px) scale(.97)}100%{opacity:1;transform:none}}
+.answer{transition:transform .16s ease,background .16s ease,border-color .16s ease,filter .16s ease}
+.answer:hover:not(:disabled){transform:translateX(7px) scale(1.012)!important}
+.answer.correct{animation:answer-correct .5s cubic-bezier(.2,1.5,.3,1)}
+.answer.wrong{animation:answer-wrong .42s ease}
+@keyframes answer-correct{50%{transform:scale(1.045);filter:brightness(1.25)}}
+@keyframes answer-wrong{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+body.feedback-correct .quiz-shell,body.feedback-correct .game-stage{animation:screen-win .55s ease}
+body.feedback-wrong .quiz-shell,body.feedback-wrong .game-stage{animation:screen-shake .45s ease}
+@keyframes screen-win{50%{box-shadow:0 0 75px rgba(72,224,164,.48)}}
+@keyframes screen-shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+
+#comboBadge{position:fixed;left:50%;top:100px;z-index:60;transform:translate(-50%,-30px) scale(.6);opacity:0;padding:11px 19px;border-radius:999px;background:linear-gradient(135deg,#ffd166,#ff7eb6);color:#221633;font-size:21px;font-weight:1000;box-shadow:0 15px 40px rgba(0,0,0,.35);pointer-events:none}
+#comboBadge.show{animation:combo-pop 1.25s cubic-bezier(.2,1.5,.3,1)}
+@keyframes combo-pop{0%{opacity:0;transform:translate(-50%,-20px) scale(.4)}20%,72%{opacity:1;transform:translate(-50%,0) scale(1)}100%{opacity:0;transform:translate(-50%,-18px) scale(.85)}}
+
+.star-burst{position:fixed;z-index:70;pointer-events:none;font-size:22px;animation:star-fly .8s ease-out forwards}
+@keyframes star-fly{to{transform:translate(var(--x),var(--y)) rotate(280deg) scale(.25);opacity:0}}
+
+/* More playful game elements */
+.pick-item,.category-button,.sequence-button{transition:.18s transform,.18s filter,.18s border-color}
+.pick-item:hover,.category-button:hover,.sequence-button:hover{transform:translateY(-5px) rotate(-1deg);filter:brightness(1.12)}
+.classify-item,.match-left{animation:item-arrive .5s cubic-bezier(.2,1.4,.3,1)}
+@keyframes item-arrive{0%{opacity:0;transform:scale(.55) rotate(-8deg)}100%{opacity:1;transform:none}}
+.game-score{animation:score-pulse 2s ease-in-out infinite}
+@keyframes score-pulse{50%{transform:scale(1.08);color:#ffd166}}
+
+/* Subject specific background flavor */
+body[data-subject="informatica"]{background:radial-gradient(circle at 10% 0,#173e73 0,transparent 33%),radial-gradient(circle at 90% 8%,#33276f 0,transparent 29%),#080b1a}
+body[data-subject="ciencias"]{background:radial-gradient(circle at 8% 2%,#075e67 0,transparent 34%),radial-gradient(circle at 92% 10%,#154f37 0,transparent 31%),#06161a}
+body[data-subject="estudios"]{background:radial-gradient(circle at 10% 0,#6c3c1c 0,transparent 34%),radial-gradient(circle at 90% 8%,#5b4a16 0,transparent 31%),#171008}
+body[data-subject="home"]{background:radial-gradient(circle at 15% -10%,#302c78 0,transparent 32%),radial-gradient(circle at 90% 10%,#123f60 0,transparent 28%),#080b1a}
+
+@media(max-width:760px){
+  #iqSidekick{right:8px;bottom:9px}.sidekick-bot{width:48px;height:48px;font-size:28px;border-radius:17px}.sidekick-bubble{display:none}
+  #voiceCaption{width:calc(100% - 24px);bottom:70px}
+  .voice-control{padding:8px;min-width:auto;font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
