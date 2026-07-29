@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1022" />
+  <meta name="description" content="InfoQuest Leito: aventura educativa interactiva de Informática, Ciencias Naturales y Estudios Sociales para 5.º EGB." />
+  <title>InfoQuest Leito · Academia de Aventuras</title>
+  <link rel="stylesheet" href="v2-styles.css" />
+</head>
+<body>
+  <div class="space-bg" aria-hidden="true"><i></i><i></i><i></i></div>
+  <header class="topbar">
+    <button class="brand" data-action="home" aria-label="Ir al inicio"><span class="brand-orb">IQ</span><span><strong>InfoQuest Leito</strong><small>Academia de Aventuras</small></span></button>
+    <div class="top-stats"><div class="stat"><span>⭐</span><strong id="xpValue">0</strong><small>XP</small></div><div class="stat"><span>🏅</span><strong id="medalValue">0</strong><small>medallas</small></div><button id="soundButton" class="icon-button" aria-label="Activar o desactivar narración y sonidos">🔊</button></div>
+  </header>
+  <main id="app" class="app" aria-live="polite"></main>
+  <div id="toast" class="toast" role="status"></div><div id="confetti" class="confetti" aria-hidden="true"></div>
+  <script src="v2-base-data.js"></script><script src="v2-info-data.js"></script><script src="v2-science-data.js"></script><script src="v2-social-data.js"></script><script src="v2-final-data.js"></script><script src="v2-app-core.js"></script><script src="v2-app-flow.js"></script>
+</body>
+</html>
