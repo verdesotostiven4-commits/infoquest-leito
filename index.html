@@ -3,76 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#4f46e5" />
-  <meta name="description" content="InfoQuest Leito: juego educativo de Informática para 5.º EGB." />
-  <title>InfoQuest Leito · Misión Informática</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#0b1022" />
+  <meta name="description" content="InfoQuest Leito: aventura educativa interactiva de Informática, Ciencias Naturales y Estudios Sociales para 5.º EGB." />
+  <title>InfoQuest Leito · Academia de Aventuras</title>
+  <link rel="stylesheet" href="v2-styles.css" />
 </head>
 <body>
-  <div class="stars" aria-hidden="true"></div>
+  <div class="space-bg" aria-hidden="true"><i></i><i></i><i></i></div>
   <header class="topbar">
-    <button class="brand" data-action="home" aria-label="Ir al inicio">
-      <span class="brand-orb">IQ</span>
-      <span><strong>InfoQuest</strong><small>Misión Informática</small></span>
-    </button>
-    <div class="top-stats">
-      <div class="stat"><span>⭐</span><strong id="xpValue">0</strong><small>XP</small></div>
-      <div class="stat"><span>🔥</span><strong id="streakValue">0</strong><small>racha</small></div>
-      <button id="soundButton" class="icon-button" aria-label="Activar o desactivar sonidos">🔊</button>
-    </div>
+    <button class="brand" data-action="home" aria-label="Ir al inicio"><span class="brand-orb">IQ</span><span><strong>InfoQuest Leito</strong><small>Academia de Aventuras</small></span></button>
+    <div class="top-stats"><div class="stat"><span>⭐</span><strong id="xpValue">0</strong><small>XP</small></div><div class="stat"><span>🏅</span><strong id="medalValue">0</strong><small>medallas</small></div><button id="soundButton" class="icon-button" aria-label="Activar o desactivar narración y sonidos">🔊</button></div>
   </header>
-
   <main id="app" class="app" aria-live="polite"></main>
-
-  <div id="toast" class="toast" role="status"></div>
-  <div id="confetti" class="confetti" aria-hidden="true"></div>
-
-  <template id="homeTemplate">
-    <section class="hero panel">
-      <div class="hero-copy">
-        <span class="eyebrow">🚀 EXAMEN MAÑANA · RUTA DE EMERGENCIA</span>
-        <h1>¡Leito, recupera el <span>código secreto</span> de la computadora!</h1>
-        <p>Supera cinco mundos, practica tus errores y vence al Jefe Final. Aprenderás exactamente los temas del examen.</p>
-        <div class="hero-actions">
-          <button class="primary big" data-action="turbo">⚡ Ruta turbo · 25 min</button>
-          <button class="secondary big" data-action="exam">🏆 Simulacro final</button>
-        </div>
-        <div class="progress-wrap">
-          <div class="progress-copy"><span>Progreso total</span><strong id="homeProgressText">0%</strong></div>
-          <div class="progress"><i id="homeProgressBar"></i></div>
-        </div>
-      </div>
-      <div class="hero-visual" aria-label="Computadora animada">
-        <div class="computer">
-          <div class="monitor">
-            <div class="monitor-screen">
-              <span class="pixel-face">^‿^</span>
-              <small>¡LISTO PARA JUGAR!</small>
-            </div>
-          </div>
-          <div class="stand"></div>
-          <div class="keyboard-mini"></div>
-          <div class="mouse-mini"></div>
-        </div>
-        <div class="floating-chip c1">CTRL</div>
-        <div class="floating-chip c2">WIN</div>
-        <div class="floating-chip c3">CPU</div>
-      </div>
-    </section>
-
-    <section class="section-heading">
-      <div><span class="eyebrow">MAPA DE MISIONES</span><h2>Aprende jugando, mundo por mundo</h2></div>
-      <button class="ghost" data-action="mistakes">🛠️ Practicar mis errores <b id="mistakeCount">0</b></button>
-    </section>
-    <section id="missionGrid" class="mission-grid"></section>
-
-    <section class="quick-strip panel">
-      <div><span class="quick-icon">🧠</span><div><strong>Repaso relámpago</strong><small>Definiciones y atajos más probables del examen.</small></div></div>
-      <button class="secondary" data-action="flash">Empezar 10 min →</button>
-    </section>
-  </template>
-
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <div id="toast" class="toast" role="status"></div><div id="confetti" class="confetti" aria-hidden="true"></div>
+  <script src="v2-base-data.js"></script><script src="v2-info-data.js"></script><script src="v2-science-data.js"></script><script src="v2-social-data.js"></script><script src="v2-final-data.js"></script><script src="v2-app-core.js"></script><script src="v2-app-flow.js"></script>
 </body>
 </html>
