@@ -1,11 +1,20 @@
 const SUBJECTS = {
+  lengua: {
+    id: 'lengua',
+    name: 'Lengua y Literatura',
+    emoji: '📚',
+    color: '#ff7eb6',
+    urgent: true,
+    subtitle: 'Prioridad: examen de mañana',
+    description: 'Diálogo, comunicación, diario personal, tema e ideas, fábula, gramática, verbos y ortografía con b, g y j.'
+  },
   informatica: {
     id: 'informatica',
     name: 'Informática',
     emoji: '💻',
     color: '#54d6ff',
-    urgent: true,
-    subtitle: 'Prioridad: examen de mañana',
+    urgent: false,
+    subtitle: 'Computadora y herramientas digitales',
     description: 'Aprende las partes de la computadora, hardware y software, mouse, teclado, carpetas, ventanas y atajos.'
   },
   ciencias: {
