@@ -23,8 +23,8 @@ const SUBJECTS = {
     emoji: '🗺️',
     color: '#ffd166',
     urgent: false,
-    subtitle: 'Historia y Ecuador',
-    description: 'Homo sapiens, primeros pobladores de América, nómadas, herramientas, regiones y límites del Ecuador.'
+    subtitle: 'Aventura de mapas e historia',
+    description: 'Viaja desde el origen del Homo sapiens hasta el Ecuador: rutas, nómadas, herramientas, mapas para pintar, regiones y límites.'
   }
 };
 
