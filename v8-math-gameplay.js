@@ -95,7 +95,7 @@
         <span class="eyebrow">ARCADE COMPLETADO</span>
         <h1>${score===total?'¡Racha perfecta!':score>=7?'¡Muy buen entrenamiento!':'Conviene repetir una ronda'}</h1>
         <p>Leito acertó <b>${score} de ${total}</b>. Cada explicación mostró el procedimiento, no solo la respuesta.</p>
-        <div class="result-actions"><button class="primary" data-math-arcade>Jugar otra ronda</button><button class="secondary" data-subject="matematica">Volver a Matemática</button><a class="secondary math-download-link" href="assets/examen-practica-matematica-5egb.pdf" download>🖨️ Imprimir práctica</a></div>
+        <div class="result-actions"><button class="primary" data-math-arcade>Jugar otra ronda</button><button class="secondary" data-subject="matematica">Volver a Matemática</button><button class="secondary math-download-link" data-math-pdf="exam">🖨️ Imprimir práctica</button></div>
       </section></section>
     `);
   }
@@ -124,8 +124,8 @@
     extras.className='math-extras';
     extras.innerHTML=`
       <button class="math-extra-card arcade" data-math-arcade><span>🎮</span><div><small>JUEGO EXTRA</small><h3>Liga de los números</h3><p>Diez retos aleatorios de secuencias, valor posicional, operaciones, gráficas y coordenadas.</p></div><strong>Jugar →</strong></button>
-      <a class="math-extra-card print" href="assets/examen-practica-matematica-5egb.pdf" download><span>🖨️</span><div><small>PRÁCTICA ESCRITA</small><h3>Examen para imprimir</h3><p>Cuatro páginas para resolver a lápiz, incluyendo cuadrículas y problemas.</p></div><strong>Descargar PDF</strong></a>
-      <a class="math-extra-card key" href="assets/examen-practica-matematica-5egb-respuestas.pdf" download><span>🔐</span><div><small>PARA EL ADULTO</small><h3>Clave de respuestas</h3><p>Revisa el examen después de que Leo lo termine.</p></div><strong>Descargar clave</strong></a>`;
+      <button class="math-extra-card print" data-math-pdf="exam"><span>🖨️</span><div><small>PRÁCTICA ESCRITA</small><h3>Examen para imprimir</h3><p>Cuatro páginas para resolver a lápiz, incluyendo cuadrículas y problemas.</p></div><strong>Descargar PDF</strong></button>
+      <button class="math-extra-card key" data-math-pdf="key"><span>🔐</span><div><small>PARA EL ADULTO</small><h3>Clave de respuestas</h3><p>Revisa el examen después de que Leo lo termine.</p></div><strong>Descargar clave</strong></button>`;
     road.parentNode.insertBefore(extras,road);
   };
 
