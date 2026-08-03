@@ -4,9 +4,18 @@ const SUBJECTS = {
     name: 'Lengua y Literatura',
     emoji: '📚',
     color: '#ff7eb6',
-    urgent: true,
-    subtitle: 'Prioridad: examen de mañana',
+    urgent: false,
+    subtitle: 'Lectura, escritura y comunicación',
     description: 'Diálogo, comunicación, diario personal, tema e ideas, fábula, gramática, verbos y ortografía con b, g y j.'
+  },
+  matematica: {
+    id: 'matematica',
+    name: 'Matemática',
+    emoji: '🧮',
+    color: '#9b8cff',
+    urgent: true,
+    subtitle: 'Prioridad: práctica completa',
+    description: 'Secuencias, números hasta 9 cifras, comparación, valor posicional, descomposición, operaciones, coordenadas, tablas y gráficos.'
   },
   informatica: {
     id: 'informatica',
